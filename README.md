@@ -13,18 +13,17 @@ README.md - This file containing details of model training.
 
 # Strategy
 
-Initially I used my drvinglog data. After repeating trial and error, I found that the udacity sapmle data works good for this project. For the following three reasons, I found that augmentation of the training data is necessary.
+My approach was inspired by [Mojtaba Vàlipour's Blog](https://medium.com/@ValipourMojtaba/my-approach-for-project-3-2545578a9319#.40pxekkl8).
+
+Initially I used my drving-log data. After repeating trial and error, I found that the udacity sample data works good for this project. For the following reasons, I thought that the augmentation of the training data is necessary.
 
 1. The most of the data is a going straight scene. The rest is a turning left scene. 
 2. The data that can be acquired at once is about 4000.
 3. I am not good at playing games and can not keep taking the drivinglog steadily.　
 
-I tried visualizing the training data. Looking at the graph, going straight scenes account for 90% of the whole. 
-I desided to generate more training data with normal distribution with no bias. 
+I tried visualizing the training data. Looking at the below graph, going straight scenes account for more than 90% of the whole. I desided to generate more training data with normal distribution with no bias. 
 
 ![png](files/raw_steering.png)
-
-My approach was inspired by [Mojtaba Vàlipour's Blog](https://medium.com/@ValipourMojtaba/my-approach-for-project-3-2545578a9319#.40pxekkl8).
 
 # Augmentation
 
