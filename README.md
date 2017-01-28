@@ -17,7 +17,7 @@ My approach was inspired by [Mojtaba Vàlipour's Blog](https://medium.com/@Valip
 
 Initially I used my drving-log data. After repeating trial and error, I found that the udacity sample data works good for this project. For the following reasons, I thought that the augmentation of the training data is necessary.
 
-1. The most of the data is a going straight scene. The rest is a turning left scene. 
+1. The most of the data are going straight scenes. The rest are turning left scenes. 
 2. The data that can be acquired at once is about 4000.
 3. I am not good at playing games and can not keep taking the driving-log steadily.　
 
@@ -27,10 +27,29 @@ I tried visualizing the training data. Looking at the below graph, going straigh
 
 # Augmentation
 
+My first approach was to use three camera's images on the car. 
+It was based on the below.
+
+~~~~
+6. Recovery and Multiple Cameras(from Udacity P-3 Lesson)
+
+You also might wonder why there are three cameras on the car: center, left, and right.
+That’s because of the issue of recovering from being off-center.
+In the simulator, you can weave all over the road and turn recording on and off. 
+In a real car, however, that’s not really possible. At least not legally.
+So in a real car, we’ll have multiple cameras on the vehicle, and we’ll map recovery paths from each camera.
+~~~~
+
+On the the left camera image, I adjusted the steering value to the right(plus) and on the right camera image, adjusted the steering value to the left(minus).The adjustment value(-1.5/+1.5) was determined from the screen of the simulator and actual operation.
+
+
+### left camera :steering: 0.10923153(adjust=-1.5)
 ![png](files/left.png)
 
+### center camera :steering: -0.04076847(adjust=0.0)
 ![png](files/center.png)
 
+### right camera :steering: -0.19076847(adjust=+1.5)
 ![png](files/right.png)
 
 ![png](files/augment_image.png)
