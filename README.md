@@ -13,6 +13,7 @@ README.md - This file containing details of model training.
 
 # Results
 
+[![png](files/result.png)](http://www.youtube.com/watch?v=KEnraN9jZYM)
 
 # Strategy
 
