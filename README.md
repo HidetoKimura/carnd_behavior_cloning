@@ -42,14 +42,14 @@ So in a real car, we’ll have multiple cameras on the vehicle, and we’ll map 
 
 I adjusted the steering value to the right(plus) on the the left camera image. And I adjusted the steering value to the left(minus) and on the right camera image. The adjustment value(-1.5/+1.5) was determined from the screen of the simulator and actual operation.
 
-## Example
-### left camera :steering: 0.10923153(adjust=-1.5)
+### Example
+#### left camera :steering: 0.10923153(adjust=-1.5)
 ![png](files/left.png)
 
-### center camera :steering: -0.04076847(adjust=0.0)
+#### center camera :steering: -0.04076847(adjust=0.0)
 ![png](files/center.png)
 
-### right camera :steering: -0.19076847(adjust=+1.5)
+#### right camera :steering: -0.19076847(adjust=+1.5)
 ![png](files/right.png)
 
 The secound approach is preprocessing using OpenCV. I used three technics.
@@ -74,7 +74,8 @@ Especially about translation, I used [vivek's blog](https://chatbotslife.com/usi
     steering = steering + trans_x/trans_x_range * adj_str
 ~~~~
 
-### Exsample. Ramdom Translatiom/Flipping/Brightness adjustment image.
+### Exsample
+#### Ramdom Translatiom/Flipping/Brightness adjustment image.
 ![png](files/augment_image.png)
 
 After that, except for 90% straight data from all the data, the data of the distribution as shown below was completed.
