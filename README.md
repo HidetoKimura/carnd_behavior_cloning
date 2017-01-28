@@ -74,9 +74,10 @@ Especially about translation, I used [vivek's blog](https://chatbotslife.com/usi
     steering = steering + trans_x/trans_x_range * adj_str
 ~~~~
 
+### Exsample. Ramdom Translatiom/Flipping/Brightness adjustment image.
 ![png](files/augment_image.png)
 
-After that, except for 90% straight data from all the data, the data of the distribution as shown below is completed.
+After that, except for 90% straight data from all the data, the data of the distribution as shown below was completed.
 
 ![png](files/gene_steering.png)
 
