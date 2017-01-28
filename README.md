@@ -11,6 +11,9 @@ README.md - This file containing details of model training.
 /files - Folder for README.md.    
 /data -  Folder for the training data. NOTE: There is not on Github. This project uses the udacity track-1 sample data. You can download [here]( https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip).   
 
+# Results
+
+
 # Strategy
 
 My approach was inspired by [Mojtaba Vàlipour's Blog](https://medium.com/@ValipourMojtaba/my-approach-for-project-3-2545578a9319#.40pxekkl8).
@@ -84,6 +87,10 @@ After that, except for 90% straight data from all the data, the data of the dist
 
 # Model archtecure
 
+For the network architecture I used the CNN model that evolved from a previous project for classifying traffic signs.
+Because I thought that the power of 2 is easier to stack layers and I can do simple learning.
+The structure is as follows.
+
 |Layer (type)                     |Output Shape          |Param #     |Note                          |   
 |---------------------------------|----------------------|------------|------------------------------|
 |lambda_2 (Lambda)                |(None, 64, 64, 3)     |0           |                              |             
@@ -107,5 +114,27 @@ After that, except for 90% straight data from all the data, the data of the dist
 |Total params: 372,161
 
 # Training 
-# Results
-# Conclusions
+
+The center camera raw images(no augmentaion) are used for validation. And I used an Adam optimizer for training. 
+The final training images are then generated in batches of 200 on the fly with 20000 images per epoch. A python generator creates new training batches by the above OpenCV preprocessing.
+
+~~~~
+Epoch 1/5
+20000/20000 [==============================] - 148s - loss: 0.0323 - val_loss: 5.7618e-04
+Epoch 2/5
+20000/20000 [==============================] - 152s - loss: 0.0210 - val_loss: 4.6232e-04
+Epoch 3/5
+20000/20000 [==============================] - 148s - loss: 0.0185 - val_loss: 7.7319e-04
+Epoch 4/5
+20000/20000 [==============================] - 157s - loss: 0.0180 - val_loss: 0.0098
+Epoch 5/5
+20000/20000 [==============================] - 147s - loss: 0.0176 - val_loss: 0.0034
+~~~~
+
+It was possible to divide the data in advance and use it as validation data, but it was not very effective. Was it better to use another test data?
+
+# Reflection
+
+It was a very difficult project which made various approaches.
+Even if the result of learning is good, self driving does not go well.
+I would like to challenge realistic self driving simulation by combining with other sensors.
