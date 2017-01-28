@@ -1,7 +1,7 @@
 # Udacity Self Driving Car Nanodegree:
 This is my implementaion for the behavioral cloning project.
 
-# File structure:
+# File structure
 
 drive.py - The script to drive the car. To be run as, ```python drive.py model.json```    
 model.ipynb - The jupyter notebook used to create and train the model.     
@@ -9,16 +9,29 @@ model.json - The model architecture.
 model.h5 - The model weights.    
 README.md - This file containing details of model training.    
 /files - Folder for README.md.    
-/data -  Folder for the training data. NOTE: There is not on Github. This project uses the udacity track-1 sample data. You can get [here]( https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip).   
+/data -  Folder for the training data. NOTE: There is not on Github. This project uses the udacity track-1 sample data. You can download [here]( https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip).   
 
 # Strategy
 
+Initially I used my drvinglog data. After repeating trial and error, I found that the udacity sapmle data works good for this project. For the following three reasons, I found that augmentation of the training data is necessary.
+
+1. The most of the data is a going straight scene. The rest is a turning left scene. 
+2. The data that can be acquired at once is about 4000.
+3. I am not good at playing games and can not keep taking the drivinglog steadily.　
+
+I tried visualizing the training data. Looking at the graph, going straight scenes account for 90% of the whole. 
+I desided to generate more training data with normal distribution with no bias. 
+
 ![png](files/raw_steering.png)
+
+My approach was inspired by [Mojtaba Vàlipour's Blog](https://medium.com/@ValipourMojtaba/my-approach-for-project-3-2545578a9319#.40pxekkl8).
 
 # Augmentation
 
 ![png](files/left.png)
+
 ![png](files/center.png)
+
 ![png](files/right.png)
 
 ![png](files/augment_image.png)
