@@ -40,9 +40,9 @@ In a real car, however, that’s not really possible. At least not legally.
 So in a real car, we’ll have multiple cameras on the vehicle, and we’ll map recovery paths from each camera.
 ~~~~
 
-On the the left camera image, I adjusted the steering value to the right(plus) and on the right camera image, adjusted the steering value to the left(minus).The adjustment value(-1.5/+1.5) was determined from the screen of the simulator and actual operation.
+I adjusted the steering value to the right(plus) on the the left camera image. And I adjusted the steering value to the left(minus) and on the right camera image. The adjustment value(-1.5/+1.5) was determined from the screen of the simulator and actual operation.
 
-
+## Example
 ### left camera :steering: 0.10923153(adjust=-1.5)
 ![png](files/left.png)
 
@@ -52,7 +52,32 @@ On the the left camera image, I adjusted the steering value to the right(plus) a
 ### right camera :steering: -0.19076847(adjust=+1.5)
 ![png](files/right.png)
 
+The secound approach is preprocessing using OpenCV. I used three technics.
+
+1. Translation
+2. Flipping 
+3. Brightness adjusment
+
+Especially about translation, I used [vivek's blog](https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9#.cwnuen1pg) as a guide to get a normal distribution steering value. 
+
+~~~~
+[Translation code]
+    rows, cols, _ = image.shape
+    trans_x_range = 10
+    trans_y_range = 4
+    adj_str = 0.05
+    trans_x = trans_x_range * np.random.uniform() - trans_x_range/2
+    trans_y = trans_y_range * np.random.uniform() - trans_y_range/2
+    trans_mat = np.float32([[1,0, trans_x], [0,1, trans_y]])
+    image = cv2.warpAffine(image, trans_mat, (cols, rows))
+    
+    steering = steering + trans_x/trans_x_range * adj_str
+~~~~
+
 ![png](files/augment_image.png)
+
+After that, except for 90% straight data from all the data, the data of the distribution as shown below is completed.
+
 ![png](files/gene_steering.png)
 
 # Model archtecure
