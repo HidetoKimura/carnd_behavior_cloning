@@ -13,6 +13,9 @@ README.md - This file containing details of model training.
 
 # Results
 
+It works good on Track-1. But, It stops on a slope on Track-2. Because throttle value is low(0.15).  
+Please click on the images if you want to see the video:
+
 [![png](files/result.png)](http://www.youtube.com/watch?v=KEnraN9jZYM)
 
 # Strategy
