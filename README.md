@@ -19,7 +19,7 @@ Initially I used my drving-log data. After repeating trial and error, I found th
 
 1. The most of the data is a going straight scene. The rest is a turning left scene. 
 2. The data that can be acquired at once is about 4000.
-3. I am not good at playing games and can not keep taking the drivinglog steadily.　
+3. I am not good at playing games and can not keep taking the driving-log steadily.　
 
 I tried visualizing the training data. Looking at the below graph, going straight scenes account for more than 90% of the whole. I desided to generate more training data with normal distribution with no bias. 
 
